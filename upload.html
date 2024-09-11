@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="images/image.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            place-items: center;
+            
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 35%;
+            max-width: 1000px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+            text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+          
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an Image for Disease Prediction</h1>
+        <form action="{{ url_for('uploader') }}" method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/*">
+            <button type="submit">Upload Image</button>
+        </form>
+    </div>
+</body>
+</html>
+

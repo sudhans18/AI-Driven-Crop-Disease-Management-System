@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        body {
+            background-image: url('{{ url_for("static", filename="images/image.jpg") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            width: 80%;
+            max-width: 1000px;
+            margin: 20px auto;
+            text-align: center;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+            text-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+        .button-link {
+            display: inline-block;
+            background-color: #4CAF50; /* Green background */
+            color: white;              /* White text */
+            padding: 10px 20px;        /* Padding for button feel */
+            text-align: center;        /* Center the text */
+            text-decoration: none;     /* Remove underline */
+            border-radius: 5px;        /* Rounded corners */
+            cursor: pointer;           /* Pointer on hover */
+            font-size: 16px;           /* Font size */
+        }
+
+        .button-link:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Result</h1>
+        <p>Uploaded Image:</p>
+        <img src="{{ url_for('static', filename='uploads/' + filename) }}" alt="Uploaded Image" style="max-width: 300px;">
+        
+        <h2>Predicted Class: {{ predicted_class }}</h2>
+        <h3>Confidence: {{ confidence }}%</h3>
+
+        <div class="columns">
+            <div class="column">
+                <h3>Preventive Measures:</h3>
+                <ul>
+                    {% for measure in preventive_measures %}
+                        <li>{{ measure }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="column">
+                <h3>Treatment Recommendations:</h3>
+                <ul>
+                    {% for treatment in treatment_recommendations %}
+                        <li>{{ treatment }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <br>
+        <a href="{{ url_for('upload_file') }}"class="button-link">Upload Another Image</a>
+    </div>
+</body>
+</html>
