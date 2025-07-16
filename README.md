@@ -67,4 +67,4 @@ The dataset used for this project includes images of various crops with labeled 
 ## Contact
 For questions or collaboration inquiries, feel free to reach out:
 - [LinkedIn](https://www.linkedin.com/in/yourusername)
-- [Email](mailto:your.email@example.com)
+- [Email](mailto:sudhan4843@gmail.com)
